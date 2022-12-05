@@ -3,13 +3,15 @@ const path = require("path");
 
 class ProductService {
 
-    formerProduct = (name, description, consists, price, photos) => {
+    formerProduct = (name, description, consists, price, photos, category, brand) => {
         return {
             product_name: name,
             product_images: photos,
             unit_price: price,
             product_description: description,
-            product_consists: consists
+            product_consists: consists,
+            category: category,
+            brand: brand
         }
     }
     fileUpload = async (files) => {

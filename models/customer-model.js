@@ -6,7 +6,8 @@ const CustomerSchema = new Schema({
     customer_email: {type: String, required: true},
     phone_number: {type: String, required: true},
     password: {type: String, required: true},
-    approved: {type: Boolean, default: false}
+    approved: {type: Boolean, default: false},
+    role: [{type: Schema.Types.ObjectId, ref: 'Role'}]
 })
 
 const Customers = model('Customer', CustomerSchema);

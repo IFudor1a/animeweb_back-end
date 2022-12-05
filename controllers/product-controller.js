@@ -12,8 +12,9 @@ class ProductController {
      async create(req, res) {
          if(!req.files) return res.status(400).json({msg: '[SERVER] Error no file content'})
          if(!req.body) return res.status(400).json({msg: '[SERVER] Error no body content'})
+         console.log(req.body)
          const Photos = await fileUpload(req.files)
-         const product = formerProduct(req.body.name,req.body.description, req.body.consists, req.body.price, Photos)
+         const product = formerProduct(req.body.name,req.body.description, req.body.consists, req.body.price, Photos, req.body.category, req.body.brand)
          const products = await Products.create(product)
          return res.json(products)
 

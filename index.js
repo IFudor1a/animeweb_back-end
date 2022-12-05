@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const  cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
-const productRouter = require('./router/product-router');
+const Router = require('./router/index');
 const fileupload = require('express-fileupload');
 const path = require('path')
 
@@ -30,7 +30,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(fileupload({createParentPath: true}));
-app.use('/api/', productRouter);
+app.use('/api/', Router);
 app.use(cookieParser());
 
 

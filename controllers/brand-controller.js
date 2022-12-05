@@ -7,7 +7,9 @@ class CategoryController {
     }
 
     async create (req, res) {
-        return res.json()
+        const {name} = req.body
+        const brands = await Brand.create({name:name})
+        return res.json(brands)
     }
 
     async delete (req, res) {
